@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dong's JS Drum Kit</title>
+    <link rel="stylesheet" href="Mystyle.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">도</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">레</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">미</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">파</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">솔</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">라</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">시</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">도</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
+    <audio data-key="65" src="sounds/도.mp3"></audio>
+    <audio data-key="83" src="sounds/레.mp3"></audio>
+    <audio data-key="68" src="sounds/미.mp3"></audio>
+    <audio data-key="70" src="sounds/파.mp3"></audio>
+    <audio data-key="71" src="sounds/솔.mp3"></audio>
+    <audio data-key="72" src="sounds/라.mp3"></audio>
+    <audio data-key="74" src="sounds/시.mp3"></audio>
+    <audio data-key="75" src="sounds/도2.mp3"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+    <script>
+      const FinishedTransition = e => {
+        e.target.classList.remove("playing");
+      };
+      const Play = e => {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        key.classList.add("playing");
+        audio.currentTime = 1.9;
+        if (e.keyCode === 76) audio.currentTime = 0;
+        audio.play();
+      };
+      const keys = Array.from(document.querySelectorAll(".key"));
+      keys.forEach(key =>
+        key.addEventListener("transitionend", FinishedTransition)
+      );
+      window.addEventListener("keydown", Play);
+    </script>
+  </body>
+</html>
