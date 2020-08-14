@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>JS + CSS Clock</title>
+  <link rel="stylesheet" href="Mystyle.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="circle">
+      <div class="clock hour"></div>
+      <div class="clock minute"></div>
+      <div class="clock second"></div>
+    </div>
+  </div>
+  <script>
+    const HourHand = document.querySelector(".hour");
+    const MinuteHand = document.querySelector(".minute");
+    const SecondHand = document.querySelector(".second");
+    const ShowClock = () => {
+      const date = new Date();
+      const Hour = date.getHours();
+      const Minute = date.getMinutes();
+      const Second = date.getSeconds();
+      const Hdeg = (Hour / 12) * 360 + (Minute / 60) * 30 + 90;
+      const Mdeg = (Minute / 60) * 360 + (Second / 60) * 6 + 90;
+      const Sdeg = (Second / 60) * 360 + 90;
+      HourHand.style.transform = `rotate(${Hdeg}deg)`;
+      MinuteHand.style.transform = `rotate(${Mdeg}deg)`;
+      SecondHand.style.transform = `rotate(${Sdeg}deg)`;
+    };
+    setInterval(ShowClock, 1000);
+    setDate();
+  </script>
+</body>
