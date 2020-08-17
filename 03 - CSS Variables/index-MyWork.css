@@ -1,0 +1,21 @@
+:root {
+  --base: #ffc600;
+  --spcaing: 0;
+  --blur: 0;
+}
+body {
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-size: 50px;
+}
+
+.highlight {
+  color: var(--base);
+}
+
+img {
+  padding: var(--spacing);
+  filter: blur(var(--blur));
+  background: var(--base);
+}
