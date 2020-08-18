@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Panels 💪</title>
+    <link rel="stylesheet" href="Mystyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="pic pic1">
+        <p>Hey</p>
+        <p>Let's</p>
+        <p>Dance</p>
+      </div>
+      <div class="pic pic2">
+        <p>Give</p>
+        <p>Take</p>
+        <p>Receive</p>
+      </div>
+      <div class="pic pic3">
+        <p>Experience</p>
+        <p>It</p>
+        <p>Today</p>
+      </div>
+      <div class="pic pic4">
+        <p>Give</p>
+        <p>All</p>
+        <p>You can</p>
+      </div>
+      <div class="pic pic5">
+        <p>Life</p>
+        <p>In</p>
+        <p>Motion</p>
+      </div>
+    </div>
+    <script>
+      const pics = document.querySelectorAll(".pic");
+      function Open() {
+        this.classList.toggle("open");
+      }
+      function Active(e) {
+        if (e.propertyName.includes("flex"))
+          this.classList.toggle("open-active");
+      }
+      pics.forEach(pic => pic.addEventListener("click", Open));
+      pics.forEach(pic => pic.addEventListener("transitionend", Active));
+    </script>
+  </body>
+</html>
