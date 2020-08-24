@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="Mystyle.css" />
+    <title>Hold Shift to Check Multiple Checkboxes</title>
+  </head>
+  <body>
+    <div class="inputboxes">
+      <div class="item">
+        <input type="checkbox" />
+        <p>This is an inbox layout.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check one item.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Hold down your Shift key.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check a lower item.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Everything in between should also be set to checked.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Try to do it without any libraries.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Just regular JavaScript.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Good Luck!</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Don't forget to tweet your result!</p>
+      </div>
+    </div>
+    <script>
+      let lastselected;
+      const checkboxes = document.querySelectorAll(
+        '.inputboxes input[type="checkbox"]'
+      );
+      function Groupcheck(e) {
+        let isBet = false;
+        if (e.shiftKey && this.checked) {
+          checkboxes.forEach(box => {
+            if (box === this || box === lastselected) {
+              isBet = !isBet;
+            }
+            if (isBet) box.checked = true;
+          });
+        }
+        lastselected = this;
+      }
+      checkboxes.forEach(box => box.addEventListener("click", Groupcheck));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+html {
+  background: #ffc600;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputboxes {
+  margin: 50px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.item {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  font-size: 20px;
+  font-weight: 200;
+  border-bottom: 1px solid rgb(207, 204, 204);
+}
+input[type="checkbox"] {
+  margin: 20px;
+}
+p {
+  padding: 20px;
+  margin: 0;
+  border-left: 1px solid rgb(207, 204, 204);
+  transition: background 0.2s;
+  flex: 1;
+  font-family: "helvetica neue";
+}
+input:checked + p {
+  background: #f9f9f9;
+  text-decoration: line-through;
+}
